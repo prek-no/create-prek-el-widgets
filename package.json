@@ -1,6 +1,6 @@
 {
   "name": "create-prek-el-widgets",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create Elementor widgets with React using a single command",
   "keywords": [
     "prek",

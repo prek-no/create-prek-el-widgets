@@ -1,7 +1,7 @@
 {
   "name": "create-prek-el-widgets",
   "version": "1.0.0",
-  "description": "Create React plugins for Wordpress with one command",
+  "description": "Create Elementor widgets with React using a single command",
   "keywords": [
     "prek",
     "elementor",
@@ -18,12 +18,15 @@
   "scripts": {
     "dev": "ncc build ./index.ts -w -o dist/",
     "prerelease": "node ./scripts/rm.mjs dist",
-    "release": "ncc build ./index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
+    "build": "ncc build ./index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
     "prepublishOnly": "cd . && turbo run build",
-    "build": "pnpm release",
+    "release": "pnpm build && release-it",
+    "release:beta": "pnpm build && release-it --preRelease=beta",
+    "release:rc": "pnpm build && release-it --preRelease=rc",
     "lint-fix": "pnpm prettier -w --plugin prettier-plugin-tailwindcss 'templates/*-tw/{ts,js}/{app,pages}/**/*.{js,ts,tsx}'"
   },
   "devDependencies": {
+    "@release-it/conventional-changelog": "^8.0.1",
     "@types/async-retry": "1.4.2",
     "@types/ci-info": "2.0.0",
     "@types/cross-spawn": "6.0.0",
@@ -42,6 +45,7 @@
     "picocolors": "1.0.0",
     "prettier-plugin-tailwindcss": "0.3.0",
     "prompts": "2.4.2",
+    "release-it": "^17.2.1",
     "replace-in-file": "^7.1.0",
     "tar": "6.1.15",
     "typescript": "^5.4.5",

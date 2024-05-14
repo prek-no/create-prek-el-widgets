@@ -1,0 +1,37 @@
+$fontSizeTw: ('xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl', '9xl')
+$fontWeightsTw: ('thin', 'light', 'regular', 'medium', 'semibold', 'bold')
+$sizeTw: ('xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl')
+$sizeTwPartial: ('xs', 'sm', 'md', 'lg', 'xl')
+$colorTW: "orange", "red", "amber", "yellow", "lime", "green", "emerald", "teal", "cyan", "sky", "blue", "indigo", "violet", "purple", "fuchsia", "pink", "rose", "black", "white", "gray"
+$colorTWExcludes: "transparent", "none", "white", "black"
+$variants: "text", "contained", "secondary", "outlined"
+$maxWidthTw: ('0','none','xs','sm','md','lg','xl','2xl','3xl','4xl','5xl','6xl','7xl','full','min','max','fit','prose','screen-sm','screen-md','screen-lg','screen-xl','screen-2xl')
+
+@function capitalize($string)
+  @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2)
+
+@function contain($list, $value)
+  @return not not index($list, $value)
+
+@function not-contain($list, $value)
+  @return not index($list, $value)
+
+@function str-replace($string, $search, $replace: '')
+  $index: str-index($string, $search)
+
+  @if $index
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace)
+
+  @return $string
+
+@mixin visually-hidden
+  position: absolute !important
+  top: 0
+  width: 1px !important
+  height: 1px !important
+  margin: 0 !important
+  padding: 0 !important
+  overflow: hidden !important
+  clip-path: inset(50%) !important
+  border: 0 !important
+  white-space: nowrap !important

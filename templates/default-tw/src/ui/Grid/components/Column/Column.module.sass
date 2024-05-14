@@ -1,0 +1,32 @@
+@import "../../../../styles/mixins"
+
+$breakpoints: 'sm','md','lg','xl'
+
+.Column
+  &.ColumnSpan
+    @for $i from 1 through 12
+      &--#{$i}
+        @apply col-span-#{$i}
+
+      // TODO Check this one
+      &-default
+        @apply col-span-#{$i}
+
+      @each $bp in $breakpoints
+        &-#{$bp}
+          &--#{$i}
+            @apply #{$bp}:col-span-#{$i}
+
+  &.RowSpan
+    @for $i from 1 through 6
+      &--#{$i}
+        @apply row-span-#{$i}
+
+      // TODO Check this one
+      &-default
+        @apply row-span-#{$i}
+
+      @each $bp in $breakpoints
+        &-#{$bp}
+          &--#{$i}
+            @apply #{$bp}:row-span-#{$i}

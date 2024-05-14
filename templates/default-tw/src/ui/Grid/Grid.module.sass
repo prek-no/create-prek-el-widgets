@@ -1,0 +1,36 @@
+@import "../../styles/mixins"
+
+$breakpoints: 'sm','md','lg','xl'
+
+.Grid
+  @apply grid
+
+  &.Columns
+    @for $i from 1 through 12
+      &--#{$i}
+        @apply grid-cols-#{$i}
+
+      @each $bp in $breakpoints
+        &-#{$bp}
+          &--#{$i}
+            @apply #{$bp}:grid-cols-#{$i}
+
+  &.Rows
+    @for $i from 1 through 6
+      &--#{$i}
+        @apply grid-rows-#{$i}
+
+      @each $bp in $breakpoints
+        &-#{$bp}
+          &--#{$i}
+            @apply #{$bp}:grid-rows-#{$i}
+
+  &.Gap
+    @for $i from 1 through 12
+      &--#{$i}
+        @apply gap-#{$i}
+
+      @each $bp in $breakpoints
+        &-#{$bp}
+          &--#{$i}
+            @apply #{$bp}:gap-#{$i}

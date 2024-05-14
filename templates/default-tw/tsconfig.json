@@ -1,0 +1,36 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext"
+      ],
+      "outDir": "./build/",
+      "module": "esnext",
+      "jsx": "preserve",
+      "allowJs": true,
+      "skipLibCheck": true,
+      "noImplicitAny": true,
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "moduleResolution": "node",
+      "isolatedModules": true,
+      "incremental": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "baseUrl": ".",
+      "paths": {
+        "~/*": ["src/*"]
+      }
+    },
+    "include": [
+      "src"
+    ],
+    "exclude": [
+      "build",
+      "node_modules",
+      "vendor"
+    ]
+  }
+  

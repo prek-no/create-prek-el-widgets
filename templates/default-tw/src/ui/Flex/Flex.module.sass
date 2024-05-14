@@ -1,0 +1,42 @@
+@import "../../styles/mixins"
+
+$breakpoints: 'sm','md','lg','xl'
+$direction: (row: "flex-row",col: "flex-col","row-reverse": "flex-row-reverse","col-reverse": "flex-col-reverse")
+$alignItems: (start: "items-start",end: "items-end",center: "items-center",baseline: "items-baseline",stretch: "items-stretch")
+$justifyContent: (start: "justify-start",end: "justify-end",center: "justify-center",between: "justify-between",around: "justify-around",evenly: "justify-evenly")
+
+.Flex
+  @apply flex w-full
+
+  // Flex Wrap
+  &.Wrap
+    @apply flex-wrap
+
+  // Flex Direction
+  &.Direction
+    @each $key, $class in $direction
+      &--#{capitalize($key)}
+        @apply #{$class}
+
+  // Flex Items Align
+  &.ItemsAlign
+    @each $key, $class in $alignItems
+      &--#{capitalize($key)}
+        @apply #{$class}
+
+  // Flex Justify Content
+  &.Justify
+    @each $key, $class in $justifyContent
+      &--#{capitalize($key)}
+        @apply #{$class}
+
+  // Gap ( Spacing horizontal )
+  &.Gap
+    @for $i from 1 through 12
+      &--#{$i}
+        @apply gap-#{$i}
+
+      @each $bp in $breakpoints
+        &-#{$bp}
+          &--#{$i}
+            @apply #{$bp}:gap-#{$i}
